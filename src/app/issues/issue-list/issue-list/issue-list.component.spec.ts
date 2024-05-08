@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GitHubDataUrlComponent } from './git-hub-data-url.component';
+import { IssueListComponent } from './issue-list.component';
 
-describe('GitHubDataUrlComponent', () => {
-  let component: GitHubDataUrlComponent;
-  let fixture: ComponentFixture<GitHubDataUrlComponent>;
+describe('IssueListComponent', () => {
+  let component: IssueListComponent;
+  let fixture: ComponentFixture<IssueListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GitHubDataUrlComponent]
+      imports: [IssueListComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(GitHubDataUrlComponent);
+    fixture = TestBed.createComponent(IssueListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
