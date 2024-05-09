@@ -1,5 +1,8 @@
 <p>Get details for the repo you want to list issues</p>
-<form>
-    <label>Github user name:</label><input/>
-    <label>Github users repo name:</label><input/>
+<form [formGroup]="githubRepoForm" (submit)="getGitHubRepoIssues()">
+    <label for="userName">Github user name:</label>
+    <input id="userName" type="text" formControlName="userName">
+    <label for="userRepoName">Github users repo name:</label>
+    <input id="userRepoName" type="text" formControlName="userRepoName">
+    <button type="submit" class="primary">Set GitHub repo</button>
 </form>
