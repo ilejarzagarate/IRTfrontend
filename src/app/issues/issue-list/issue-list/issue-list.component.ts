@@ -7,7 +7,7 @@ import { IssuesService } from '../../../core/services/issues/issues.service';
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './issue-list.component.html',
-  styleUrl: './issue-list.component.sass'
+  styleUrl: './issue-list.component.css'
 })
 export class IssueListComponent {  
   githubRepoForm = new FormGroup({

@@ -9,7 +9,7 @@ import { FooterComponent } from './shared/footer/footer/footer.component';
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
-    styleUrl: './app.component.sass',
+    styleUrl: './app.component.css',
     imports: [RouterOutlet, IssueDetailComponent,IssueListComponent, NavBarComponent, FooterComponent]
 })
 export class AppComponent {
