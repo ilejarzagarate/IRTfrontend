@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, firstValueFrom } from 'rxjs';
+import { Issue } from '../../models/issue.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,15 +18,10 @@ export class IssuesService {
   
   private gitHubUrl: string = 'https://api.github.com/repos/';
   
-  async getAllGitHubRepoIssues(userName?:string, userRepo?: string):Promise<any>{
-    let url = this.gitHubUrl+userName+'/'+userRepo+'/issues';
+  getAllGitHubRepoIssues(userName?:string, userRepo?: string):Promise<Issue[]>{
+    const url = this.gitHubUrl+userName+'/'+userRepo+'/issues';
 
-    let promise = new Promise((resolve, reject) =>{
-      this.http.get(url).toPromise()
-      .then(res => {
-        return res;
-      });
-    });  
-    return promise; 
+    const getData = this.http.get<Issue[]>(url);
+    return firstValueFrom(getData);
   }
 }

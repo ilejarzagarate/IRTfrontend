@@ -1,8 +1,35 @@
-<p>Get details for the repo you want to list issues</p>
-<form [formGroup]="githubRepoForm" (submit)="getGitHubRepoIssues()">
-    <label for="userName">Github user name:</label>
-    <input id="userName" type="text" formControlName="userName">
-    <label for="userRepoName">Github users repo name:</label>
-    <input id="userRepoName" type="text" formControlName="userRepoName">
-    <button type="submit" class="primary">Set GitHub repo</button>
-</form>
+@if (!hasIssues){
+    <p>Get details for the repo you want to list issues</p>
+    <form [formGroup]="githubRepoForm" (submit)="getGitHubRepoIssues()">
+      <label for="userName">Github user name:</label>
+      <input id="userName" type="text" formControlName="userName">
+      <label for="userRepoName">Github users repo name:</label>
+      <input id="userRepoName" type="text" formControlName="userRepoName">
+      <button type="submit" class="primary">Set GitHub repo</button>
+  </form>
+  }
+  @else{
+    <p>Issues for repo {{userRepoName}} of user {{userName}}</p>
+    <table class="table  table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>Numero</th>
+          <th>Asunto</th>
+          <th>Fecha de creación</th>
+          <th>Fecha de cierre</th>
+          <th>Es borrador</th>
+        </tr>
+      </thead>
+      <tr *ngFor="let issue of issues">
+        <td><a href='{{issue.html_url}}'>{{issue.number}}</a></td>
+        <td>{{issue.title}}</td>
+        <td>{{issue.created_at}}</td>
+        <td>{{issue.closed_at}}</td>
+        <td>{{issue.draft}}</td>
+      </tr>
+    </table>
+    <div class="d-flex justify-content-center">
+     
+    </div>
+  }
+  
