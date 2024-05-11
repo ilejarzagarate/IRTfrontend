@@ -10,6 +10,7 @@
   }
   @else{
     <p>Issues for repo {{userRepoName}} of user {{userName}}</p>
+    <p>Page {{page$}}</p>
     <table class="table  table-bordered">
       <thead class="table-dark">
         <tr>
@@ -20,16 +21,20 @@
           <th>Es borrador</th>
         </tr>
       </thead>
-      <tr *ngFor="let issue of issues">
-        <td><a href='{{issue.html_url}}'>{{issue.number}}</a></td>
-        <td>{{issue.title}}</td>
-        <td>{{issue.created_at}}</td>
-        <td>{{issue.closed_at}}</td>
-        <td>{{issue.draft}}</td>
-      </tr>
+      @for (issue of issues; track issue; let  i = $index) {
+        <tr>
+          <td><a href='{{issue.html_url}}'>{{issue.number}}</a></td>
+          <td>{{issue.title}}</td>
+          <td>{{issue.created_at}}</td>
+          <td>{{issue.closed_at}}</td>
+          <td>{{issue.draft}}</td>
+        </tr>
+      }
     </table>
     <div class="d-flex justify-content-center">
-     
+      <button (click)="firstPage()">First Page</button>
+      <button (click)="decrement()">Previous Page</button>
+      <button (click)="increment()">Next Page</button>
     </div>
   }
   
