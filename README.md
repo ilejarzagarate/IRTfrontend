@@ -1,27 +1,3 @@
-# Frontend
+En el proyeco se pide el usuario de GitHub y el nombre del repositorio del que obtener las issue. Tras dar al boton de aceptar, obtenemos todas las issue y las mostramos paginadas de 5 en 5, utilizando el ngrx/store manteniendo un estado de la página en la que estamos.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+La siguiente mejora seria gestionar los usuarios usando strapi, y el usuario solo tendría acceso a la pantalla de lista de issues si esta logueado. Para ello creariamos una pantalla de logueo que verificaria en strapi si esta dado de alta y este servicio devuelve un token que guardariamos en el localstorage y generariamos un guard con ese token
