@@ -37,26 +37,29 @@ export class IssueListComponent {
   async getGitHubRepoIssues(){
     this.userName = this.githubRepoForm.value.userName!;
     this.userRepoName = this.githubRepoForm.value.userRepoName!;
-    await this.issueService.getAllGitHubRepoIssues(this.userName, this.userRepoName);
-    this.issueService.getIsues(0)
+    await this.issueService.getAllGitHubRepoIssues(this.userName, this.userRepoName).then(issuesData=>{
+      this.issueService.setIssuesData(issuesData);
+      this.issueService.getIsues(0)
       .subscribe(result => {
         this.issues = result;
         this.hasIssues = this.issues.length>0;
       });
+    });
+   
   }
   getPage(){
     this.page$?.subscribe((page:number) => this.page =page);
   }
   increment(){
     this.store.dispatch(increment());
-    this.page$?.subscribe((page) => 
+    this.page$?.subscribe((page) =>
       this.issueService.getIsues(page).subscribe(result => this.issues = result)
     );
   }
 
   decrement(){
     this.store.dispatch(decrement());
-    this.page$?.subscribe((page) => 
+    this.page$?.subscribe((page) =>
       this.issueService.getIsues(page).subscribe(result => this.issues = result)
     );
   }
@@ -65,3 +68,6 @@ export class IssueListComponent {
     this.issueService.getIsues(0).subscribe(result => this.issues = result);
   }
 }
+
+
+
