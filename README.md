@@ -1,4 +1,4 @@
-###Decripción
+##Decripción
 
 El proyecto es un paginador de errores de los proyectos de GitHub. Los proyectos de GitHub se identifican por el nombre del usuario y el nombre de repositorio. Por ello, seleccionando en el menu "Lista de issues" lleva a una pantalla donde se necesitan el nombre del usuario y el nombre del repositorio para obtener los datos usando el api de GitHub.
 
